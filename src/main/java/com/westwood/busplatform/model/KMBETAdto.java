@@ -21,7 +21,7 @@ public class KMBETAdto {
         String dest_sc;
         String dest_en;
         String eta_seq;
-        String eta;
+        Date eta;
         String rmk_tc;
         String rmk_sc;
         String rmk_en;

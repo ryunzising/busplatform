@@ -27,8 +27,10 @@ public class RestUtil {
     //獲取對應巴士對象
     public KMBETAdto getBUSInfo(String targetURL){
         String body = HttpRequest.get(targetURL).execute().body();
+        log.info(body);
         KMBETAdto bean = JSONUtil.toBean(body, KMBETAdto.class);
         log.info(bean.getData().get(0).getDest_sc());
+        log.info(bean.getData().get(0).getData_timestamp().toString());
         return bean;
     }
 }
