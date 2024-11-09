@@ -18,7 +18,9 @@ public class TelegramUtil {
 
     public ResultBean<String> pushingByUserID(String chat_id,String msg){
         String url=String.format("https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s", botToken, chat_id,msg);
+        log.info(url);
         String result = HttpRequest.post(url).execute().body();
+        log.info(result);
         JSONObject entries = JSONUtil.parseObj(result);
         if(Objects.equals(entries.getStr("ok"),"true")){
             return new ResultBean<>(true,"success","","");

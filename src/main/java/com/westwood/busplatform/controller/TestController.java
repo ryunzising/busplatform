@@ -9,6 +9,7 @@ import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.*;
 import org.quartz.impl.matchers.GroupMatcher;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -24,6 +25,7 @@ public class TestController {
     RestUtil restUtil;
     @Resource
     Scheduler scheduler;
+
 
     @RequestMapping("/push")
     public String pushTest() {
@@ -44,6 +46,7 @@ public class TestController {
         jobDataMap.put("route", "75X");
         jobDataMap.put("stop", "90B75A8D2983AC20");
         jobDataMap.put("minusMinutes", 5L);
+        jobDataMap.put("addMinutes", 1L);
         jobDataMap.put("userID", "admin");
         jobDataMap.put("pushingMethod", PushingMethod.Telegram);
         jobDataMap.put("pushingID", "YOUR PUSHING ID");
